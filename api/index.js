@@ -1,8 +1,9 @@
 import axios from "axios";
+import { API_KEY } from "../secret";
 
 export const getPlacesData = async (location, type) => {
   try {
-    console.log("my location_id", location);
+    // console.log("my location_id", location);
     const {
       data: { data },
     } = await axios.get(`https://travel-advisor.p.rapidapi.com/${type}/list`, {
@@ -15,7 +16,7 @@ export const getPlacesData = async (location, type) => {
         lang: "en_US",
       },
       headers: {
-        "X-RapidAPI-Key": "a9ebe71483mshbf742ffbdb2e530p1b8cc9jsnf953ee3f13db",
+        "X-RapidAPI-Key": API_KEY,
         "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
       },
     });
@@ -38,8 +39,7 @@ export const getLocation = async (query) => {
           units: "km",
         },
         headers: {
-          "X-RapidAPI-Key":
-            "a9ebe71483mshbf742ffbdb2e530p1b8cc9jsnf953ee3f13db",
+          "X-RapidAPI-Key": API_KEY,
           "X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
         },
       }
